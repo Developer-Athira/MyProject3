@@ -1,0 +1,76 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Apply Leave {% endblock %}
+
+{% block content %}  
+  
+
+
+<h2 class="mt-5" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bolder; margin-left: 36%;color: #B62a5e;">LEAVE APPLICATION</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <img src="static/images/banner.avif" alt="" width="500">
+        </div>
+        <div class="col-md-6">
+            <div class="mt-6">
+                <form method="POST" action="">
+                    {% csrf_token %}     
+
+                    <br>
+                    <div class="form-group row">
+                        <label for="fromDate" class="col-sm-3 col-form-label">From Date :</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="fromDate" id="fromDate" placeholder="Date " type="date">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="toDate" class="col-sm-3 col-form-label">To Date :</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="toDate" id="toDate" placeholder="Date " type="date">
+                        </div>
+                    </div>
+                    <br>
+  
+                    <div class="form-group row">
+                        <label for="typeOfleave" class="col-sm-3 col-form-label">Type of leave:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="typeOfleave" id="typeOfleave">
+                                <option value="CasualLeave">Casual Leave</option>
+                                <option value="SickLeave">Sick Leave</option>       
+                                <option value="EmergencyLeave">Emergency Leave</option>
+                                <option value="MaternityLeave">Maternity Leave</option>
+                                <option value="PaternityLeave">Paternity Leave</option>
+                            </select>
+                        </div>
+                    </div>
+               <br>
+                    <div class="form-group row">
+                        <label for="remarks" class="col-sm-3 col-form-label">Remarks:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="remarks" id="remarks" placeholder="Remarks" type="text">
+                        </div>
+                    </div>
+                    
+                    <br>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <button style="border-color: #2c2ab6; border-radius: 5px; background-color: #2c2ab6;color: white;" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    <div class="col-md-1"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

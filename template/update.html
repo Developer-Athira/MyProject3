@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Add Data {% endblock %}
+
+{% block content %}  
+  
+
+<h1 class="text-center mt-5" style="color: #B62a5e;">UPDATE EMPLOYEE DETAILS</h1>
+<div class="container">
+<div class="row">
+    <div class="col-md-1"></div>
+<div class="col-md-5">
+<img src="{% static 'images/add.png' %}" alt="" width="500">
+</div>
+<div class="col-md-5">
+<div class="mt-5">
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        {{form.as_p}}
+    
+   <button style=" border-color: #B62a5e; border-radius: 5px; background-color: #B62a5e;color: white;" type="submit">Submit</button>
+           
+</form>
+</div>
+</div>
+<div class="col-md-1"></div>
+</div>
+</div>
+
+{% endblock %}

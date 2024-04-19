@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}  
+  
+<br><br><br><br>
+<div class="container-fluid" style="margin-top: 30px; margin-left: 50px;">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <img src="{% static 'images/land.jpg' %}" class="img-fluid" style="max-width: 100%;height:450px;" alt="Image">
+      </div>
+  
+      <div class="col-md-5">
+        <div class="d-flex flex-column" style="margin-left: 10px;color: #B62a5e;">
+          <h1>Employee Portal</h1>
+          <p>A  Portal for Employee Management</p>
+          <div class="content" style="color: black;font-size: larger;margin-right: 100px;margin-top: 20px;margin-left: 10px;">
+            <p>"Employee portal is an  application that allow employees to login to the firm, view their personal information, manage employee data, and have administrative control over employee data. "</p>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-1"></div>
+          </div>
+          </div>
+          
+
+          {% endblock %}

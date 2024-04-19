@@ -1,0 +1,98 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Add Data {% endblock %}
+
+{% block content %}  
+  
+
+<h1 class="mt-5" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bolder; margin-left: 36%;color: #B62a5e;">MANAGE EMPLOYEE DETAILS</h1>
+{% if user.is_superuser %}
+<!-- <span>
+<form method="get" action="{% url 'name_search'%}"style="margin-left: 40%;" >
+
+
+  <label for="filter_name">Filter by Name:</label>
+  <input type="text" id="filter_name" name="name" value="{{ name }}" placeholder="Enter name">
+
+  <button class="btn text-white" style="width:100px;background-color:#ad3260;">Filter</button>
+</form>
+<br> <label>or</label>
+<form method="get" action="{% url 'department_search'%}"style="margin-left: 40%;" >
+
+
+  <label for="filter_department">Filter by Dept:</label>
+  <input type="text" id="filter_department" name="department" value="{{ department }}" placeholder="Enter department">
+
+  <button class="btn text-white" style="width:100px;background-color:#ad3260;">Filter</button>
+</form> 
+</span> -->
+   
+ <table class="table" style="width: 50%;margin-left: 25%;margin-top: 35px;">
+    <thead>
+      <tr >
+        <th scope="col">Name</th>
+        <th scope="col">Designation</th>
+        <th scope="col">EmpId</th>
+       
+        <th scope="col">DOJ</th>
+        <th scope="col">Department</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Email</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+   
+      {% for i in task %}
+      <tr>
+        <th >{{i.name}}</th>
+        <td>{{i.designation}}</td>
+        <td>{{i.empId}}</td>
+       
+        <td>{{i.dateOfJ}}</td>
+        <td>{{i.department}}</td>    
+        <td>{{i.salary}}</td>
+        <td>{{i.email}}</td>
+        
+        <td><a class="btn btn-warning" href="{% url 'update' i.id %}">Update</a></td>
+        <td><a  class="btn btn-danger" href="{% url 'delete' i.id %}">Delete</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% else %}
+<table class="table" style="width: 50%;margin-left: 25%;margin-top: 35px;">
+  <thead>
+    <tr >
+      <th scope="col">Name</th>
+      <th scope="col">Designation</th>
+      <th scope="col">Employee Id</th>
+      <th scope="col">Email</th>
+      <th scope="col">DOJ</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Department</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+    {% for i in task %}
+   {% if user.email == i.email %}
+    <tr>
+      <th >{{i.name}}</th>
+      <td>{{i.designation}}</td>
+      <td>{{i.empId}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.dateOfJ}}</td>
+      <td>{{i.salary}}</td>
+      <td>{{i.department}}</td>
+      <td><a class="btn btn-warning" href="{% url 'update' i.id %}">Update</a></td>
+      <!-- <td><a  class="btn btn-danger" href="{% url 'delete' i.id %}">Delete</a></td> -->
+    </tr>
+    {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Manage Leave {% endblock %}
+
+{% block content %}  
+  
+
+<h1 class="mt-5" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bolder; margin-left: 36%;color: #B62a5e;">LEAVE DETAILS</h1>
+{% if user.is_superuser %}
+
+   
+ <table class="table" style="width: 50%;margin-left: 25%;margin-top: 35px;">
+    <thead>
+      <tr >
+        <th scope="col">From Date</th>
+        <th scope="col">To Date</th>
+        <th scope="col">Type of Leave</th>
+        <th scope="col">Remarks</th>
+        <th scope="col">Leave Status</th>
+        <th scope="col">Username</th>
+      </tr>
+    </thead>
+    <tbody>
+   
+      {% for i in leaves %}
+      <tr>
+        <th >{{i.fromDate}}</th>
+        <td>{{i.toDate}}</td>
+        <td>{{i.typeOfLeave}}</td>
+        <td>{{i.remarks}}</td>
+        <td>{{i.leaveStatus}}</td>
+        <td>{{i.user}}</td>
+        <td><a class="btn btn-warning" href="{% url 'approveleave' i.id %}">Approve</a></td>
+        <td><a  class="btn btn-danger" href="{% url 'rejectleave' i.id %}">Reject</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% else %}
+<table class="table" style="width: 50%;margin-left: 25%;margin-top: 35px;">
+  <thead>
+    <tr >
+        <th scope="col">From Date</th>
+        <th scope="col">To Date</th>
+        <th scope="col">Leave Type</th>
+        <th scope="col">Remarks</th>
+        <th scope="col">Leave Status</th>
+        <th scope="col">Username</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+    {% for i in leaves %}
+    {% if user.username == i.user %}
+    <tr>
+        <th >{{i.fromDate}}</th>
+        <td>{{i.toDate}}</td>
+        <td>{{i.typeOfLeave}}</td>
+        <td>{{i.remarks}}</td>
+        <td>{{i.leaveStatus}}</td>
+        <td>{{i.user}}</td>
+
+    </tr>
+    {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

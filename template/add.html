@@ -1,0 +1,89 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Add Data {% endblock %}
+
+{% block content %}  
+  
+
+
+<h2 class="mt-5" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bolder; margin-left: 36%;color: #B62a5e;">EMPLOYEE DETAILS</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <img src="static/images/add.png" alt="" width="500">
+        </div>
+        <div class="col-md-6">
+            <div class="mt-6">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    
+                    <div class="form-group row">
+                        <label for="names" class="col-sm-3 col-form-label">Name:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="names" id="names" placeholder="Name" type="text">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="designation" class="col-sm-3 col-form-label">Designation:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="designation" id="designation" placeholder="Designation" type="text">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="empid" class="col-sm-3 col-form-label">Employee id:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="empid" id="empid" placeholder="Employee id" type="number">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group row">
+                        <label for="doj" class="col-sm-3 col-form-label">Date of Joining:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="doj" id="doj" placeholder="Date of Joining" type="date">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="department" class="col-sm-3 col-form-label">Department:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="department" id="department" placeholder="Department" type="text">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="salarys" class="col-sm-3 col-form-label">Salary: </label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="salary" id="salary" placeholder="Salary" type="text">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-3 col-form-label">E-mail: </label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="email" id="email" placeholder="E-mail" type="text">
+                        </div>
+                    </div>
+                    <br>
+
+                    
+                    
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <button style="border-color: #2c2ab6; border-radius: 5px; background-color: #2c2ab6;color: white;" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    <div class="col-md-1"></div>
+    </div>
+</div>
+
+{% endblock %}
